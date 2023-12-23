@@ -39,7 +39,7 @@ const Li = styled.li`
             z-index: 1;
             position: relative;
            
-            transition: 0.2s ease-out;
+            transition: 0.3s ease-in;
             
             &:before{
                 content: '';
@@ -119,6 +119,7 @@ const Li = styled.li`
 `;
 
 const Type = styled.p`
+            transition: 0.3s ease-in;
             color: ${props => props.theme.color} ;
             background: ${e => e.theme.typeBackground};
             font-weight: 500;
@@ -128,6 +129,7 @@ const Type = styled.p`
 `
 
 const Name = styled.p`
+            transition: 0.3s ease-in;
             justify-content: center;
             font-weight: 700;
             color: ${props => props.theme.color};

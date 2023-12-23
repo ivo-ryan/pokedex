@@ -7,6 +7,7 @@ import { ThemeContext } from "../context";
 import { NavBar } from "../components/navbar/navbar";
 import { Details } from "../components/pokemons/pokemons";
 import { Div, Ul } from "./style";
+import { Loader } from "../components/loader/loader";
 
 
 export const Home = (  ) => {
@@ -15,10 +16,14 @@ export const Home = (  ) => {
     const [ limit , setLimit ] = useState(10);
     const [ search, setSearch ] = useState("");
     const { theme } = useContext(ThemeContext);
+    const [ isLoading, setIsLoading ] = useState(false)
     
    useEffect(() => {
     
     const pokemons = async () => {
+
+      setIsLoading(true)
+
         const url = await fetch( `${api}?limit=${limit }`);
         const response = await url.json();
         const promise = response.results;
@@ -26,7 +31,8 @@ export const Home = (  ) => {
         const details = promises.map( res => res.url);
         const promisesData = await axios.all(details.map(endpoint => axios.get(endpoint)));
         const data = promisesData.map(res => res.data);
-      
+      setIsLoading(false)
+
         setList(data)
     } 
      pokemons()
@@ -42,7 +48,11 @@ export const Home = (  ) => {
 
         < NavBar search={search} setSearch={setSearch} cancelNavigation/>
 
+        
+        {isLoading && <Loader/>}
+
         <Ul theme={theme}>
+
         {
             pokemonSearch.map(({ name, id, types, sprites }, index) => (
                 <Details

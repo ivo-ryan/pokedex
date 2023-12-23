@@ -5,6 +5,8 @@ const Header = styled.header`
         text-align:center;
         padding-bottom: 20px;
         width:100%;
+        transition: 0.3s ease-in;
+        filter: drop-shadow(3px 3px 10px black);
 
         div{
             display: flex;
@@ -15,19 +17,18 @@ const Header = styled.header`
             img{
                 width:130px ;
                 transition: 0.3s ease-in;
+                filter: drop-shadow(3px 3px 10px black);
             }
         }
 
         input{
             font-family: 'Poppins', sans-serif;
             padding: 4px 3px;
-            border-style: none;
+            outline: none;
+            border: none;
             border-radius: 5px;
             transition: 0.3s ease-in;
 
-            &:hover{
-                box-shadow: 5px -1px 40px #6d4ff3;
-            }
         }
 
         

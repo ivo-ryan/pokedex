@@ -15,16 +15,23 @@ export const Profile = () => {
     const [ abilities, setAbilities] = useState([]);
     const [ abilityUrl, setAbilityUrl] = useState([]);
     const [ types, setTypes ] = useState([]);
+    const [ isLoading, setIsLoading ] = useState(false);
 
 
     useEffect(() => {
         const fetchData = async () => {
+            setIsLoading(true);
+
             const url = await fetch(`${api}/${id}`);
             const response = await url.json();
             setPokemon(response);
             setImage(response.sprites.other.dream_world.front_default);
+
             setMoves(response.moves);
             setAbilityUrl(response.abilities)
+            
+            setIsLoading(false);
+            
             setTypes(response.types)
         }
 
@@ -33,9 +40,12 @@ export const Profile = () => {
 
     useEffect(() => {
         const ability = async () => {
+            setIsLoading(true)
+
             const promise = abilityUrl.map(res => res.ability.url)
             const response = await axios.all(promise.map(res => axios.get(res)))
             const data = response.map(res => res.data)
+            setIsLoading(false)
 
             setAbilities(data);
 
@@ -47,7 +57,7 @@ export const Profile = () => {
     return (
      <>
      
-     <Pokemon  pokemon={pokemon} image={image} moves={moves} abilities={abilities} types={types} />
+     <Pokemon  pokemon={pokemon} image={image} moves={moves} abilities={abilities} types={types} isLoading={isLoading}/>
 
     </>
     )

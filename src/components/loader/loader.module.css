@@ -1,0 +1,16 @@
+.Loader {
+    margin-top: 20px ;
+    font-size: 60px;
+    animation: rotate 1.5s linear infinite;
+    color: rgb(182, 0, 182);
+}
+
+@keyframes rotate {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}

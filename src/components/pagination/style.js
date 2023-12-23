@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-        margin-top:10px;
+        margin:10px;
         border-radius: 10px;
-        padding: 5px 10px ;
+        padding: 8px 15px ;
         border: none;
         font-family: 'Poppins', sans-serif;
         min-width: 150px;

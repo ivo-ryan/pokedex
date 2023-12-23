@@ -66,6 +66,7 @@ const Container = styled.div`
                 background-color: rgb(44, 55, 119);
                 max-width: 600px;
                 margin: 30px 10px;
+                filter: drop-shadow(2px 8px 7px black);
 
                 h3{
                     color:rgb(247, 186, 21);

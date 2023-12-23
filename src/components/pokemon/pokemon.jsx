@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { NavBar } from "../navbar/navbar";
 import { About, Container, Id, ImageContainer, MoveDescription, Moves, ProfileName, Scroll, Section, TypeContainer, Types, TypesName } from "./style";
 import { ThemeContext } from "../../context";
+import { Loader } from "../loader/loader";
 
 
 
-export const Pokemon = ({ pokemon, image, moves, abilities , types }) => {   
+export const Pokemon = ({ pokemon, image, moves, abilities , types, isLoading }) => {   
     
     const { theme } = useContext(ThemeContext);
 
@@ -18,6 +19,8 @@ export const Pokemon = ({ pokemon, image, moves, abilities , types }) => {
         <Section theme={theme}>
             
             <Container>
+
+            {isLoading && <Loader/>}    
 
             <Id>#{pokemon.id}</Id>
 
@@ -67,7 +70,7 @@ export const Pokemon = ({ pokemon, image, moves, abilities , types }) => {
                 <Scroll theme={theme}>
                     {
                         abilities.map((ability, index) => {
-                            return(
+                            return (
                                 <li key={index}>
                                     <h4>
                                         {ability.name}
