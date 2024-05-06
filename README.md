@@ -3,8 +3,8 @@
 Esse projeto simula uma pokedex , onde o usuário onde o usuário pode ver quantos pokemons quiser , para isso foi feita uma paginação que adiciona mais dez pokemons a cada click , com opção de de ver detalhes de cada pokemon individualmente. 
 
 [
-<img src="" alt="Pokedex"/>
-]
+<img src="./pokedex.gif" alt="Pokedex"/>
+](https://pokedex-swart-delta.vercel.app/)
 
 ## Tecnologias usadas
 - React
